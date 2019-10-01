@@ -7,11 +7,11 @@ class Ride < ActiveRecord::Base
     if user_has_enough_tickets && user_is_tall_enough
       start_ride
     elsif user_is_tall_enough && !user_has_enough_tickets
-      "Sorry! " + not_enough_tickets
+      "Sorry. " + not_enough_tickets
     elsif !user_is_tall_enough && user_has_enough_tickets
-      "Sorry! " + not_tall_enough
+      "Sorry. " + not_tall_enough
     elsif !user_is_tall_enough && !user_has_enough_tickets
-      "Sorry! " + not_tall_enough + " " + not_enough_tickets
+      "Sorry. " + not_tall_enough + " " + not_enough_tickets
     end
   end
 
