@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def verified_user
-    redirect to '/' unless user_is_authenticated
+    redirect_to '/' unless user_is_authenticated
   end
 
   def user_is_authenticated
