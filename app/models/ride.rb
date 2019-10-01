@@ -3,6 +3,7 @@ class Ride < ActiveRecord::Base
   belongs_to :attraction
 
   def take_ride
+    user_has_enough_tickets, user_is_tall_enough = user_meets_requirements
   end
 
   def user_meets_requirements
