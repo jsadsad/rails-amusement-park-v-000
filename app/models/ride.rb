@@ -43,6 +43,6 @@ class Ride < ActiveRecord::Base
   end
 
   def not_tall_enough
-    "You are not tall enough to ride #{self.attraction.name}."
+    "You are not tall enough to ride the #{self.attraction.name}."
   end
 end
