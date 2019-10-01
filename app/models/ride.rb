@@ -12,7 +12,7 @@ class Ride < ActiveRecord::Base
       "Sorry! " + not_tall_enough
     elsif !user_is_tall_enough && !user_has_enough_tickets
       "Sorry! " + not_tall_enough + " " + not_enough_tickets
-    end 
+    end
   end
 
   def user_meets_requirements
@@ -27,6 +27,15 @@ class Ride < ActiveRecord::Base
   end
 
   def start_ride
+    new_happiness = self.user.happiness + self.attraction.happiness_rating
+    new_nausea = self.user.nausea + self.attraction.nausea_ratiing
+    new_ticket_count = self.user.tickets - self.attraction.tickets
+    self.user.update(
+      :happiness => new_happiness,
+      :nausea => new_nausea,
+      :tickets => new_ticket_count
+    )
+    "Thanks for riding the #{self.attraction.name}!"
   end
 
   def not_enough_tickets
